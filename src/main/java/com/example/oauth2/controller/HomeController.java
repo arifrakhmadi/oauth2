@@ -5,7 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
-public class home {
+public class HomeController {
 
     @PreAuthorize("hasAuthority('EDIT_TRANSAKSI')")
     @GetMapping("/home")
