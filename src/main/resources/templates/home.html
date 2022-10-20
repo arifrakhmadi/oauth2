@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns:sec="http://www.w3.org/1999/xhtml" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <title>Spring Security</title>
@@ -7,6 +7,20 @@
 <body>
 
 <h1>Belajar Spring Security</h1>
+
+<h1>Selamat datang, </h1><h1 sec:authentication="name"></h1>
+
+<div sec:authentication="principal.Enable"></div>
+
+<ul>
+    <li sec:authorize="hasAuthority('VIEW_TRANSAKSI')">View Transaksi</li>
+    <li sec:authorize="hasAuthority('EDIT_TRANSAKSI')">Edit Transaksi</li>
+</ul>
+
+Daftar permission :
+<ul>
+    <li th:each="perm:${#authentication.authorities}" th:text="${perm}"></li>
+</ul>
 
 <form method="post" th:action="@{/logout}">
     <input type="submit" value="Logout">
